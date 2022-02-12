@@ -1,20 +1,35 @@
 import os
+from getpass import getuser
 
-def create_file(file_name):
+
+clear = lambda: os.system("clear") if os.name == "posix" else os.system("cls")
+
+
+def create_file(file_name): # touch
     with open(file_name, "w") as f:
         f.write("")
 
 
-def change_directory(path):
+def change_directory(path): # cd [filename]
     os.chdir(path)
 
 
-def step_back():
+def create_directory(dir_name):
+    os.mkdir(dir_name)
+
+
+def step_back(): #  cd ..
     os.chdir("..")
 
 
+def list_content(actualpath):
+    for i in os.listdir(actualpath):
+        print(i)
+
+
 def main():
-    os.chdir("/users/")
+    username = getuser()
+    os.chdir(f"/users/{username}")
     while True:
         actual_path = os.path.abspath(os.getcwd())
         print(f"{actual_path}/", end=" ")
@@ -37,6 +52,21 @@ def main():
                 os.chdir("/users/")
             else:
                 change_directory(second_command)
+        
+        elif first_command == "pwd":
+            print(actual_path)
+
+        elif first_command == "mkdir":
+            create_directory(second_command)
+        
+        elif first_command == "ls":
+            list_content(actual_path)
+
+        elif first_command == "clear":
+            clear()
+        
+        else:
+            break
 
 
 if __name__ == "__main__":
