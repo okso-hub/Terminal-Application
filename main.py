@@ -1,3 +1,4 @@
+from fileinput import filename
 import os
 from getpass import getuser
 
@@ -25,6 +26,14 @@ def step_back(): #  cd ..
 def list_content(actualpath):
     for i in os.listdir(actualpath):
         print(i)
+
+
+def delete_file(file_name):
+    os.remove(file_name)
+
+
+def delete_directory(dir_name):
+    os.rmdir(dir_name)
 
 
 def main():
@@ -61,6 +70,12 @@ def main():
         
         elif first_command == "ls":
             list_content(actual_path)
+        
+        elif first_command == "rm":
+            delete_file(second_command)
+        
+        elif first_command == "rmdir":
+            delete_directory(second_command)
 
         elif first_command == "clear":
             clear()
