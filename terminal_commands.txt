@@ -1,0 +1,8 @@
+This is a list of all commands which are supported in my program.
+
+- touch <file>
+- cd <path> (includes '..' to move backwards)
+- mkdir <directory name>
+- ls
+- rm <file>
+- rmdir <directory> (only removes empty directories)
