@@ -60,7 +60,10 @@ def main():
             elif second_command == "":
                 os.chdir("/users/")
             else:
-                change_directory(second_command)
+                try:
+                    change_directory(f"{second_command} {commands[2]}")
+                except:
+                    change_directory(second_command)
         
         elif first_command == "pwd":
             print(actual_path)
@@ -76,12 +79,21 @@ def main():
         
         elif first_command == "rmdir":
             delete_directory(second_command)
+        
+        elif first_command == "open":
+            os.system(f"open {second_command}")
 
         elif first_command == "clear":
             clear()
         
-        else:
+        elif first_command == "python":
+            exec(open(f"{second_command}").read())
+        
+        elif first_command == "quit":
             break
+        
+        else:
+            print(f"Command '{first_command}' not found.")
 
 
 if __name__ == "__main__":
