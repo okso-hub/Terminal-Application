@@ -5,8 +5,8 @@ def main():
     username = getuser()
     os.chdir(f"/users/{username}")
     while True:
-        actual_path = os.path.abspath(os.getcwd())
-        print(f"{actual_path}/", end=" ")
+        current_path = os.path.abspath(os.getcwd())
+        print(f"{current_path}/", end=" ")
         entry = str(input(""))
 
         commands = entry.split(" ")
@@ -31,13 +31,13 @@ def main():
                     change_directory(second_command)
         
         elif first_command == "pwd":
-            print(actual_path)
+            print(current_path)
 
         elif first_command == "mkdir":
             create_directory(second_command)
         
         elif first_command == "ls":
-            list_content(actual_path)
+            list_content(current_path)
         
         elif first_command == "rm":
             delete_file(second_command)
@@ -53,6 +53,9 @@ def main():
         
         elif first_command == "python":
             exec(open(f"{second_command}").read())
+        
+        elif first_command == "mv":
+            move_file(second_command, commands[2])
         
         elif first_command == "quit":
             break

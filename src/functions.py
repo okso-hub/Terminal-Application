@@ -1,6 +1,8 @@
 from fileinput import filename
 import os
 from getpass import getuser
+from pathlib import Path
+import shutil
 
 
 clear = lambda: os.system("clear") if os.name == "posix" else os.system("cls")
@@ -19,7 +21,7 @@ def create_directory(dir_name):
     os.mkdir(dir_name)
 
 
-def step_back(): #  cd ..
+def step_back(): # cd ..
     os.chdir("..")
 
 
@@ -34,3 +36,7 @@ def delete_file(file_name):
 
 def delete_directory(dir_name):
     os.rmdir(dir_name)
+
+
+def move_file(file_name, destination):
+    shutil.move(file_name, destination)
