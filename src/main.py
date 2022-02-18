@@ -4,6 +4,7 @@ from functions import *
 def main():
     username = getuser()
     os.chdir(f"/users/{username}")
+
     while True:
         current_path = os.path.abspath(os.getcwd())
         print(f"{current_path}/", end=" ")

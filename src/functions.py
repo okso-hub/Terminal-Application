@@ -1,7 +1,6 @@
 from fileinput import filename
 import os
 from getpass import getuser
-from pathlib import Path
 import shutil
 
 
