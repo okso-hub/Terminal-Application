@@ -1,8 +1,11 @@
 This is a list of all commands which are supported in my program.
 
-- touch <file>
-- cd <path> (includes '..' to move backwards)
-- mkdir <directory name>
-- ls
-- rm <file>
-- rmdir <directory> (only removes empty directories)
+- cd to direct to /users/[usr]
+ - cd .. to take one step back
+ - cd [folder] to direct to a folder
+- touch [filename] to create a file
+- mkdir [foldername] to create a directory
+- ls to list content in current directory
+- rm [filename] to delete file
+- rmdir [foldername] to delete a directory
+- mv [file/folder] [destination] to move files
